@@ -1,4 +1,5 @@
 from stash import StashParser
+from filter import FilterUpdater
 from config import GLOBAL_CONFIG
 import time
 
@@ -10,10 +11,16 @@ def main():
         GLOBAL_CONFIG['league'],
         GLOBAL_CONFIG['session_id'],
     )
+    fu = FilterUpdater(GLOBAL_CONFIG['filter_path'])
 
     while True:
-        print("Refreshing...")
+        print("\nRefreshing...")
         stash_contents = sp.get_stash_contents()
+        fu.update_filter(
+            stash_contents,
+            GLOBAL_CONFIG['jewellery_threshold'],
+            GLOBAL_CONFIG['other_threshold'],
+        )
         print(stash_contents)
         time.sleep(10)
 
