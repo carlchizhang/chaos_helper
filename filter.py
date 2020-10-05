@@ -26,9 +26,9 @@ class FilterUpdater():
         enable = set(ITEM_FILTER_DICT.keys())
         for item_class, count in stash_contents.items():
             if item_class in {'Rings', 'Amulets', 'Belts'} and count >= jewellery_threshold:
-                enable.pop(item_class)
+                enable.remove(item_class)
             elif count >= other_threshold:
-                enable.pop(item_class)
+                enable.remove(item_class)
         self._write_filter(enable)
 
     def _write_filter(self, item_classes):

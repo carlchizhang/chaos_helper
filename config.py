@@ -6,4 +6,5 @@ GLOBAL_CONFIG = {
     "filter_path": "C:\\Users\\carlz\\Documents\\My Games\\Path of Exile\\vstrict-chaos.filter",
     "jewellery_threshold": 30,
     "other_threshold": 8,
+    "refresh_interval": 30,
 }
