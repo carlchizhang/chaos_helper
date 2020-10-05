@@ -1,5 +1,6 @@
 from stash import StashParser
 from filter import FilterUpdater
+from filter_strings import ITEM_FILTER_DICT
 from config import GLOBAL_CONFIG
 import time
 
@@ -22,6 +23,11 @@ def main():
             GLOBAL_CONFIG['other_threshold'],
         )
         print(stash_contents)
+        count = float('inf')
+        for item_type in ITEM_FILTER_DICT.keys():
+            if stash_contents[item_type] < count:
+                count = stash_contents[item_type]
+        print(f"Currently we can make {count} chaos recipe sets.")
         time.sleep(10)
 
 

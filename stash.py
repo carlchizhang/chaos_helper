@@ -40,6 +40,8 @@ class StashParser():
         res = defaultdict(float)
         for item in items:
             type_line = item['typeLine']
+            if type_line.startswith('Superior'):
+                type_line = type_line[len('Superior '):]
             if type_line in self.item_mapping['Rings']:
                 res['Rings'] += 0.5
             elif type_line in self.item_mapping['Amulets']:
