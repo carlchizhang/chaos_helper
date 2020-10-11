@@ -28,6 +28,7 @@ def main():
                 count = stash_contents[item_type]
         print(stash_contents)
         print(f"Currently we can make {count} chaos recipe sets.")
+        print(f"Clicking order: big items -> belts/rings/ammys")
         time.sleep(GLOBAL_CONFIG['refresh_interval'])
 
 
